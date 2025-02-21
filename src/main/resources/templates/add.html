@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add</title>
+<link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body>
+<a th:href="@{/}">Back to Home</a>
+
+<h2>Add Dog</h2>
+<form th:action="@{/addDog}" method="post" th:object=${dog}>
+	Name: <input type="text" th:field="*{name}"><br>
+	
+	<input type="submit" value="Add Dog">
+</form>
+
+<h2>Add Owner</h2>
+<form th:action="@{/addOwner}" method="post" th:object=${owner}>
+	First Name: <input type="text" th:field="*{firstname}"><br>
+	Last Name: <input type="text" th:field="*{lastname}"><br>
+	
+	<input type="submit" value="Add Owner">
+</form>
+
+<h2>Add Judge</h2>
+<form th:action="@{/addJudge}" method="post" th:object=${judge}>
+	Name: <input type="text" th:field="*{name}"><br>
+	
+	
+	<input type="submit" value="Add Judge">
+</form>
+
+
+
+
+
+
+</body>
+</html>

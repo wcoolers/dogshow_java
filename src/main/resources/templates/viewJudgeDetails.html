@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Judge Details</title>
+<link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+	<a th:href="@{/viewJudges}">Back to View Judges</a>
+	<h1 th:text="${judge.name}" ></h1>
+	<p th:if="${judge.dogs == null or judge.dogs.isEmpty()}">This judge has no assigned dogs yet</p>
+	<table border="1" th:unless="${judge.dogs == null or judge.dogs.isEmpty()}">
+		<tr>
+			<th>Dog ID</th>
+			<th>Dog Name</th>
+			<th>Owner's First Name</th>
+			<th>Owner's Last Name</th>
+		</tr>
+		
+		<tr th:each="dog : ${judge.dogs}">
+			<td th:text="${dog.id}"></td>
+			<td th:text="${dog.name}"></td>
+			<td th:text="${dog.owner.firstname}"></td>
+			<td th:text="${dog.owner.lastname}"></td>
+		</tr>
+		
+		
+
+	</table>
+</body>
+</html>

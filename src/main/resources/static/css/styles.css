@@ -1,0 +1,9 @@
+@charset "UTF-8";
+body {
+	text-align: center;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse; 
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add</title>
+<link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body>
+<a th:href="@{/}">Back to Home</a>
+
+<h2>Assign Judge to Dog</h2>
+<form th:action="@{/assignJudgeToDog}" method="get">
+	Judges:
+	<select name="judgeId">
+	    <option th:each="j : ${judges}" 
+	        th:value="${j.id}" th:text="${j.name}"></option>
+	</select> <br>
+	
+	Dogs:
+	<select name="dogId">
+	    <option th:each="d : ${dogs}" 
+	        th:value="${d.id}" th:text="${d.name}"></option>
+	</select> <br>
+	
+	<input type="submit" value="Assign Judge to Dog">
+</form>
+<br>
+
+<h2>Assign Owner to Dog</h2>
+<form th:action="@{/assignOwnerToDog}" method="get">
+	Owners:
+	<select name="ownerId">
+	    <option th:each="o : ${owners}" 
+	        th:value="${o.id}" th:text="|${o.firstname} ${o.lastname}|"></option>
+	</select> <br>
+	
+	Dogs:
+	<select name="dogId">
+	    <option th:each="d : ${dogs}" 
+	        th:value="${d.id}" th:text="${d.name}"></option>
+	</select> <br>
+	
+	<input type="submit" value="Assign Owner to Dog">
+</form>
+
+</body>
+</html>

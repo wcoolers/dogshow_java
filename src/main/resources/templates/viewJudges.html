@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Judges</title>
+<link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body>
+	<a th:href="@{/}">Back to Home</a>
+	<h1>Judges</h1>
+	<table border="1">
+		<tr>
+			<th>Judge ID</th>
+			<th>Name</th>		
+		</tr>
+		
+		<tr th:each="j : ${judges}">
+			<th th:text="${j.id}"></th>
+			<td th:text="${j.name}"></td>
+			<td><a th:href="@{/judgeDetails/{id} (id=${j.id}) }">Details</a></td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+</html>

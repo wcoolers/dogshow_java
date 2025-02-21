@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Dog Details</title>
+<link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+	<a th:href="@{/viewDogs}">Back to View Dogs</a>
+	<h1 th:text="${dog.name}"></h1>
+	<p th:if="${dog.owner == null}">This dog has no owner yet</p>
+	<table border="1" th:unless="${dog.owner == null}">
+		<tr>
+			<th>Owner ID</th>
+			<th>Owner First Name</th>
+			<th>Owner Last Name</th>
+		</tr>
+		
+		<tr>
+			<td th:text="${dog.owner.id}"></td>
+			<td th:text="${dog.owner.firstname}"></td>
+			<td th:text="${dog.owner.lastname}"></td>
+		</tr>
+		
+		
+
+	</table>
+	
+	<br>
+	<p th:if="${dog.judges == null or dog.judges.isEmpty()}">This dog has no judges</p>
+	<table border="1" th:unless="${dog.judges == null or dog.judges.isEmpty()}">
+		<tr>
+			<th>Judge ID</th>
+			<th>Judge Name</th>
+		</tr>
+		
+		<tr th:each="j : ${dog.judges}">
+			<td th:text="${j.id}"></td>
+			<td th:text="${j.name}"></td>
+			<td><a th:href="@{/removeJudgeFromDog/{dogId}/{judgeId} (dogId=${dog.id}, judgeId=${j.id}) }">Drop Judge</a></td>
+		</tr>
+		
+		
+
+	</table>
+	
+
+</body>
+</html>
